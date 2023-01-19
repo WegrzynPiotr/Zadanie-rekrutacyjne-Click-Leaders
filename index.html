@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formularz rejestracji</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style/style-mobile.css">
+    <link rel="stylesheet" media='screen and (min-width: 701px)' href="/style/style-tablet.css">
+    <link rel="stylesheet" media='screen and (min-width: 1024px)' href="/style/style-desktop.css">
 </head>
 
 <body>
@@ -14,21 +16,19 @@
         <h1 id="form__header">Rejestracja</h1>
         <form id="form" action="/" method="post">
             <label for="form__input--name">Imię</label>
-            <input type="text" id="form__input--name" class="form__input--half-width" placeholder="Imię">
+            <input type="text" id="form__input--name" class="input" class="form__input--half-width" placeholder="Imię">
             <label for="form__input--surname">Nazwisko</label>
-            <input type="text" id="form__input--surname" class="form__input--half-width" placeholder="Nazwisko">
+            <input type="text" id="form__input--surname" class="input" class="form__input--half-width" placeholder="Nazwisko">
             <label for="form__input--email">Email</label>
-            <input type="text" class="form__input--full-width" id="form__input--email" placeholder="Email">
+            <input type="text" id="form__input--email" class="input" placeholder="Email">
             <label for="form__input--password">Hasło</label>
-            <input type="text" class="form__input--full-width" id="form__input--password" placeholder="Hasło">
+            <input type="text" id="form__input--password" class="input" placeholder="Hasło">
             <small id="form__info">Hasło powinno mieć min. 5 znaków</small>
-            <small><a href="#">Nie pamiętasz hasła?</a></small>
+            <small id="form__password-recovery"><a href="#">Nie pamiętasz hasła?</a></small>
             <div id="form__accept"><input type="checkbox" name="" id="form__checkbox"><label
                     for="form__checkbox">Akceptuję warunki</label></span></div>
             <button id="form__button" type="submit">Zarejestruj się</button>
         </form>
     </div>
-
 </body>
-
 </html>
