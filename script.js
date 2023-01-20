@@ -9,11 +9,17 @@ const checkbox = document.getElementById("form__checkbox")
 let isModal = false;
 let markup = ''
 let message = "";
-
-const disallowSubmit = ()=>{
-    submitBtn.setAttribute("disabled","")
+let isFill = false;
+let ischecked = false;
+let p1 = null
+let p2 = null
+let p3 = null
+let p4 = null
+let p5 = null
+const disallowSubmit = () => {
+    submitBtn.setAttribute("disabled", "")
     submitBtn.style.cursor = "not-allowed"
-    }
+}
 
 disallowSubmit()
 
@@ -64,7 +70,6 @@ const checkPassword = (input) => {
 
 }
 
-
 inputs.forEach(input => {
     input.addEventListener("input", (e) => {
         let namePassed = false;
@@ -72,52 +77,50 @@ inputs.forEach(input => {
         let emailPassed = false;
         let passwordPassed = false
 
-        
+
         if (e.target.placeholder == "Imię") {
-            if (checkName(e.target.value))
+            if (checkName(e.target.value)){
                 namePassed = true;
+                p1 = namePassed
+            }
             else showMessage("Imię")
         }
 
         if (e.target.placeholder == "Nazwisko") {
-            if (checkName(e.target.value))
+            if (checkName(e.target.value)){
                 surnamePassed = true;
+                p2 = surnamePassed
+            }
             else showMessage("Nazwisko")
         }
 
         if (e.target.placeholder == "Email") {
-            
+
             if (checkEmail(e.target.value)) {
                 emailPassed = true;
+                p3 = emailPassed
             }
-            
-            else {
-               showMessage("Email") 
-               
-            }
-                
-            }
-                
-            
-        
+            else showMessage("Email")
+        }
+
 
         if (e.target.placeholder == "Hasło") {
             if (checkPassword(e.target.value)) {
                 passwordPassed = true;
-            }else showMessage("Hasło")
+                p4 = passwordPassed
+            } else showMessage("Hasło")
         }
 
-        if(emailPassed){
+        if (namePassed || surnamePassed || emailPassed || passwordPassed) {
             closeModal()
         }
-
-        if(passwordPassed){
-            closeModal()
+        if(p1 &&p2 &&p3 &&p4 && checkbox.checked){
+            allowSubmit()
+        }else{
+            disallowSubmit()
         }
 
-        if (namePassed && surnamePassed && emailPassed && passwordPassed) {
-            allowSubmit();
-        }
+
 
     })
 })
@@ -151,12 +154,3 @@ const allowSubmit = () => {
 }
 
 
-
-checkbox.addEventListener("change", ()=>{
-    if(checkbox.checked){
-        allowSubmit()
-    }else{
-        disallowSubmit()
-        createModal("Musisz zaakceptować warunki")
-    }
-})
