@@ -1,15 +1,21 @@
 
 import "core-js"
 import "regenerator-runtime/runtime"
-const inputs = document.querySelectorAll("input");
+const inputs = [...document.querySelectorAll("input")];
 const form = document.getElementById("form");
 const submitBtn = document.getElementById("form__button");
-submitBtn.setAttribute("disabled", true)
-submitBtn.style.cursor = "not-allowed"
+const checkbox = document.getElementById("form__checkbox")
+
 let isModal = false;
 let markup = ''
 let message = "";
 
+const disallowSubmit = ()=>{
+    submitBtn.setAttribute("disabled","")
+    submitBtn.style.cursor = "not-allowed"
+    }
+
+disallowSubmit()
 
 const createModal = (...texts) => {
 
@@ -80,19 +86,34 @@ inputs.forEach(input => {
         }
 
         if (e.target.placeholder == "Email") {
-            if (checkEmail(e.target.value))
+            
+            if (checkEmail(e.target.value)) {
                 emailPassed = true;
-            else showMessage("Email")
-        }
+            }
+            
+            else {
+               showMessage("Email") 
+               
+            }
+                
+            }
+                
+            
+        
 
         if (e.target.placeholder == "Hasło") {
             if (checkPassword(e.target.value)) {
-                console.log(e.target.value)
                 passwordPassed = true;
-            }
-            else showMessage("Email")
+            }else showMessage("Hasło")
         }
 
+        if(emailPassed){
+            closeModal()
+        }
+
+        if(passwordPassed){
+            closeModal()
+        }
 
         if (namePassed && surnamePassed && emailPassed && passwordPassed) {
             allowSubmit();
@@ -123,8 +144,19 @@ const showMessage = (validateType) => {
     createModal(message)
 }
 const allowSubmit = () => {
-    submitBtn.setAttribute("disabled", false)
-    submitBtn.style.cursor = "cursor"
+    submitBtn.removeAttribute("disabled")
+    submitBtn.style.cursor = "pointer"
     message = ""
     markup = ""
 }
+
+
+
+checkbox.addEventListener("change", ()=>{
+    if(checkbox.checked){
+        allowSubmit()
+    }else{
+        disallowSubmit()
+        createModal("Musisz zaakceptować warunki")
+    }
+})
