@@ -33,10 +33,21 @@ body{
     accent-color: var(--form-blue-color);
 }
 
-#form{
+#form__position{
+    flex-direction: column;
+    display: flex;
+}
+
+#form,#form__full-name{
     display: flex;
     flex-direction: column;
 }
+
+#form__info-box{
+    display: flex;
+    flex-direction: column;
+}
+
 label:not(#form__accept label){
     font-size: 0.9rem;
     margin-bottom:.4rem;
@@ -53,9 +64,7 @@ label:not(#form__accept label){
     padding:10px;
     font-size: 1rem;
 }
-.input:last-of-type{
-    margin-bottom:.5rem;
-}
+
 #form__button{
     color:#fff;
     font-size: 1.1rem;
@@ -78,4 +87,30 @@ label:not(#form__accept label){
 a{
     text-decoration: none;
     color:#609B8D;
+}
+
+#modal__visible{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(70, 69, 69, 0.845);
+    min-height: 80vh;
+    min-width: 80vw;
+    color:#fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal__close{
+    position: absolute;
+    top:0;
+    left:100%;
+    transform: translateX(-100%);
+    color:#000;
+    font-weight: 800;
+    font-size: 2rem;
+    padding:1rem;
+    cursor: pointer;
 }

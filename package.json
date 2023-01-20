@@ -1,0 +1,28 @@
+{
+  "devDependencies": {
+    "parcel": "^2.8.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "core-js": "^3.27.2",
+    "regenerator-runtime": "^0.13.11"
+  },
+  "name": "click-leaders",
+  "version": "1.0.0",
+  "default": "index.html",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WegrzynPiotr/Zadanie-rekrutacyjne-Click-Leaders.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WegrzynPiotr/Zadanie-rekrutacyjne-Click-Leaders/issues"
+  },
+  "homepage": "https://github.com/WegrzynPiotr/Zadanie-rekrutacyjne-Click-Leaders#readme",
+  "description": ""
+}

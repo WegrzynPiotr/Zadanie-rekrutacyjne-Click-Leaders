@@ -1,0 +1,22 @@
+#form__header{
+    margin:1rem 0 3rem;
+}
+
+#form__container{
+    min-width: 800px;
+    border-radius: .7rem;
+}
+
+#form__full-name{
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#form__info-box{
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#form__accept{
+    text-align: left;
+}
